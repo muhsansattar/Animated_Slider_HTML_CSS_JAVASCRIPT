@@ -1,0 +1,577 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-image: url('../images/Image=1.svg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-image 0.5s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+}
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+.names {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; 
+    height: 100%; 
+}
+
+.name {
+    position: relative;
+    text-align: center;
+    width: 33.33%; 
+    height: 100%;
+    background-image: url('../images/Overlay\ 2.svg'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: all 0.5s ease-in-out; 
+    cursor: pointer;
+}
+
+#hea {
+    font-family: "Roboto", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0.5em;
+    color: rgba(255, 255, 255, 1);
+}
+
+.name h1 {
+    margin: 0;
+    padding: 0;
+}
+
+
+.name:hover .reveal-info-btn {
+    opacity: 1; 
+}
+
+.reveal-info-btn {
+    position: absolute;
+    top: calc(50% - 20px); 
+    left: 50%;
+    transform: translate(-50%, -100%);
+    opacity: 0; 
+    transition: opacity 0.3s ease;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.reveal-info-btn img {
+    width: 24px;
+    height: 24px;
+    pointer-events: none;
+}
+
+.info {
+    display: none; 
+    margin-top: 20px;
+    text-align: start;
+    margin-left: 130px;
+    width: 432px;
+}
+
+.info h1 {
+    font-family: "Roboto", sans-serif;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 50px;
+    color: rgba(255, 255, 255, 1);
+}
+
+.names .name .info p {
+    font-family: "Roboto", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 25px;
+    color: rgba(255, 255, 255, 1);
+}
+
+.names .name .info button {
+    color: rgba(48, 46, 57, 1);
+    background-color: rgba(112, 255, 229, 1);
+    padding: 13px 33px;
+    border-radius: 33px;
+}
+
+/* Expanded and Shrunk States for Animation */
+.name.expanded {
+    width: 66.66%; /* Expanded width for the clicked div */
+}
+
+.name.shrunk {
+    width: 16.66%; /* Shrunk width for the other two divs */
+}
+
+
+
+/* Change color of the #hea heading when info is displayed */
+.name.show-info #hea {
+    color: rgba(112, 255, 229, 1); /* Example color for when info is shown */
+}
+
+/* Move #hea to the top to align with info content */
+.name.show-info #hea {
+    text-align: start;
+    margin-left: 130px; /* Align with info */
+    margin-top: 0;
+}
+
+/* Update .name class when info is shown */
+.name.expanded .info {
+    display: block;
+}
+
+.name.expanded #hea {
+    color: rgba(112, 255, 229, 1); /* The same color as when info is shown */
+}
+@media (max-width: 1100px) {
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        background-image: url('../images/Image=1.svg');
+        background-size: cover;
+        background-position: center;
+        transition: background-image 0.5s ease-in-out;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+    }
+
+    .names {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row; /* Arrange divs horizontally */
+        width: 100%;
+        height: 100vh;
+    }
+
+    .name {
+        width: 33.33%; /* Equal width for each div */
+        height: 100%; /* Full height */
+        margin: 0;
+        padding: 10px;
+        border-radius: 0;
+        transition: height 0.5s ease-in-out, width 0.5s ease-in-out;
+        position: relative; /* Added to allow for relative positioning of the plus sign */
+    }
+
+    /* Expanded and Shrunk States */
+    .name.expanded {
+        width: 66.66%; /* Expanded width for the clicked div */
+        height: 100%; /* Full height */
+    }
+
+    .name.shrunk {
+        width: 16.66%; /* Shrunk width for the other two divs */
+        height: 100%; /* Full height */
+    }
+    .name.show-info #hea {
+        text-align: start;
+        margin-left: 130px; /* Align with info */
+        margin-top: 0;
+    }
+
+    /* Adjust text and other content for the new layout */
+    .info {
+        width: 60%;
+      
+        text-align: start;
+    }
+
+    .info h1 {
+        font-size: 28px;
+        line-height: 34px;
+        position: relative; /* Relative position to allow the plus sign to be positioned above */
+    }
+
+    .reveal-info-btn {
+        position: absolute;
+        top: calc(50% - 20px); /* Initially center it vertically */
+        left: 50%;
+        transform: translate(-50%, -100%);
+        opacity: 0; 
+        transition: opacity 0.3s ease;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        margin-top: -10px; /* Positioning it 10px above the heading */
+    }
+
+    .reveal-info-btn img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .info p {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .info button {
+        padding: 12px 24px;
+        font-size: 16px;
+    }
+}
+
+
+
+@media (max-width: 900px) {
+    /* Arrange the .name divs in a column */
+    .names {
+        display: flex;
+        flex-direction: column; /* Stack divs vertically */
+        width: 100%;
+        height: 100vh; /* Ensure container takes full screen height */
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Common Styles for All Divs */
+    .name {
+        width: 100%; /* Full width for each div */
+        transition: height 0.5s ease-in-out;
+        margin: 0;
+        padding: 25px; /* Adjusted padding for larger screens */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        box-sizing: border-box; /* Ensures padding doesn't affect width */
+    }
+
+    /* Expanded from Top to Bottom (Panda) */
+    .name#panda.expanded {
+        height: 100vh; /* Full screen height */
+        width: 100%; /* Ensure full width */
+    }
+
+    /* Middle Expansion (Elephant) */
+    .name#elephant.expanded {
+        height: 50vh; /* Half the screen height */
+        width: 100%; /* Ensure full width */
+    }
+
+    /* Expanded from Bottom to Top (Gorilla) */
+    .name#gorilla.expanded {
+        height: 50vh; /* Half the screen height */
+        width: 100%; /* Ensure full width */
+    }
+
+    /* When Panda is expanded, adjust the remaining two divs */
+    .name#panda.expanded ~ .name {
+        height: 25vh; /* Remaining height divided between two divs */
+        width: 100%; /* Ensure full width */
+    }
+
+    /* When Elephant is expanded, adjust the top and bottom divs */
+    .name#elephant.expanded ~ .name {
+        height: 25vh; /* Top and bottom div take remaining space */
+        width: 100%; /* Ensure full width */
+    }
+
+    /* When Gorilla is expanded, adjust the top two divs */
+    .name#gorilla.expanded ~ .name {
+        height: 25vh; /* Remaining height divided between two divs */
+        width: 100%; /* Ensure full width */
+    }
+
+    /* Default state for unclicked divs */
+    .name:not(.expanded) {
+        height: 33.33vh; /* Default height for unclicked divs */
+        width: 100%; /* Ensure full width */
+    }
+
+    .name.show-info #hea {
+        text-align: start;
+        margin-left: 87px; /* Align with info */
+    }
+
+    /* Adjusted text and button sizes */
+    .info {
+        width: 70%;
+        margin-left: 85px;
+        text-align:start;
+    }
+
+    .info h1 {
+        font-size: 30px; /* Slightly larger font size */
+        line-height: 40px;
+    }
+
+    .info p {
+        font-size: 18px; /* Slightly larger font size */
+        line-height: 26px;
+    }
+
+    .info button {
+        padding: 14px 28px; /* Adjusted button size */
+        font-size: 18px;
+    }
+
+    .reveal-info-btn {
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 45px; /* Adjusted size for larger screens */
+        height: 45px;
+    }
+
+    .reveal-info-btn img {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+/* For screens smaller than 768px (tablets and smartphones) */
+@media (max-width: 768px) {
+    /* Arrange the .name divs in a column */
+    .names {
+        display: flex;
+        flex-direction: column; /* Stack divs vertically */
+        width: 100%;
+        height: 100vh; /* Ensure container takes full screen height */
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Common Styles for All Divs */
+    .name {
+        width: 100%; /* Full width for each div */
+        transition: height 0.5s ease-in-out;
+        margin: 0;
+        padding: 20px; /* Adjusted padding for larger screens */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        box-sizing: border-box; /* Ensures padding doesn't affect width */
+    }
+
+    /* Expanded from Top to Bottom (Panda) */
+    .name#panda.expanded {
+        height: 100vh; /* Full screen height */
+        width: 100%; /* Ensure full width */
+    }
+
+    /* Middle Expansion (Elephant) */
+    .name#elephant.expanded {
+        height: 50vh; /* Half the screen height */
+        width: 100%; /* Ensure full width */
+    }
+
+    /* Expanded from Bottom to Top (Gorilla) */
+    .name#gorilla.expanded {
+        height: 50vh; /* Half the screen height */
+        width: 100%; /* Ensure full width */
+    }
+
+    /* When Panda is expanded, adjust the remaining two divs */
+    .name#panda.expanded ~ .name {
+        height: 25vh; /* Remaining height divided between two divs */
+        width: 100%; /* Ensure full width */
+    }
+
+    /* When Elephant is expanded, adjust the top and bottom divs */
+    .name#elephant.expanded ~ .name {
+        height: 25vh; /* Top and bottom div take remaining space */
+        width: 100%; /* Ensure full width */
+    }
+
+    /* When Gorilla is expanded, adjust the top two divs */
+    .name#gorilla.expanded ~ .name {
+        height: 25vh; /* Remaining height divided between two divs */
+        width: 100%; /* Ensure full width */
+    }
+
+    /* Default state for unclicked divs */
+    .name:not(.expanded) {
+        height: 33.33vh; /* Default height for unclicked divs */
+        width: 100%; /* Ensure full width */
+    }
+    .name.show-info #hea {
+        text-align: start;
+        margin-left: 87px; /* Align with info */
+    }
+
+    /* Adjusted text and button sizes */
+    .info {
+        width: 70%;
+        margin-left: 85px;
+        text-align: start;
+    }
+
+    .info h1 {
+        font-size: 28px; /* Slightly larger font size */
+        line-height: 36px;
+    }
+
+    .info p {
+        font-size: 16px; /* Slightly larger font size */
+        line-height: 24px;
+    }
+
+    .info button {
+        padding: 12px 24px; /* Adjusted button size */
+        font-size: 16px;
+    }
+
+    .reveal-info-btn {
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px; /* Adjusted size for larger screens */
+        height: 40px;
+    }
+
+    .reveal-info-btn img {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+
+
+
+
+
+
+
+/* For screens smaller than 480px (small smartphones) */
+@media (max-width: 480px) {
+    /* Arrange the .name divs in a column */
+    .names {
+        display: flex;
+        flex-direction: column; /* Stack divs vertically */
+        width: 100%;
+        height: 100vh; /* Ensure container takes full screen height */
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Common Styles for All Divs */
+    .name {
+        width: 100%; /* Full width for each div */
+        transition: height 0.5s ease-in-out;
+        margin: 0;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        box-sizing: border-box; /* Ensures padding doesn't affect width */
+    }
+
+    /* Expanded from Top to Bottom (Panda) */
+    .name#panda.expanded {
+        height: 100vh; /* Full screen height */
+        width: 100%; /* Ensure full width */
+    }
+
+    /* Middle Expansion (Elephant) */
+    .name#elephant.expanded {
+        height: 50vh; /* Half the screen height */
+        width: 100%; /* Ensure full width */
+    }
+
+    /* Expanded from Bottom to Top (Gorilla) */
+    .name#gorilla.expanded {
+        height: 50vh; /* Half the screen height */
+        width: 100%; /* Ensure full width */
+    }
+
+    /* When Panda is expanded, adjust the remaining two divs */
+    .name#panda.expanded ~ .name {
+        height: 25vh; /* Remaining height divided between two divs */
+        width: 100%; /* Ensure full width */
+    }
+
+    /* When Elephant is expanded, adjust the top and bottom divs */
+    .name#elephant.expanded ~ .name {
+        height: 25vh; /* Top and bottom div take remaining space */
+        width: 100%; /* Ensure full width */
+    }
+
+    /* When Gorilla is expanded, adjust the top two divs */
+    .name#gorilla.expanded ~ .name {
+        height: 25vh; /* Remaining height divided between two divs */
+        width: 100%; /* Ensure full width */
+    }
+
+    /* Default state for unclicked divs */
+    .name:not(.expanded) {
+        height: 33.33vh; /* Default height for unclicked divs */
+        width: 100%; /* Ensure full width */
+    }
+    .name.show-info #hea {
+        text-align: start;
+        margin-left: 75px; /* Align with info */
+    }
+    /* Ensuring buttons and text adjust */
+    .info {
+        width: 70%;
+        margin-left: 70px;
+        text-align: start;
+    }
+
+    .info h1 {
+        font-size: 24px;
+        line-height: 30px;
+    }
+
+    .info p {
+        font-size: 14px;
+        line-height: 22px;
+    }
+
+    .info button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    .reveal-info-btn {
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 30px;
+        height: 30px;
+    }
+
+    .reveal-info-btn img {
+        width: 20px;
+        height: 20px;
+    }
+}
